@@ -50,6 +50,19 @@ function getValuesFromString(str) {
     return str.split(operator);
 }
 
+//clear buttor functionality
+let clearButton = document.querySelector('.clear');
+clearButton.addEventListener('click', clearCalculator);
+
+function clearCalculator() {
+    firstValue = '';
+    secondValue = '';
+    operator = '';
+    activeOperator = false;
+    displayString = '0';
+    updateDisplay();
+}
+
 function add(a,b) {
     return `${(+a)+(+b)}`;
 }
