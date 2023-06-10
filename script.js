@@ -94,8 +94,8 @@ function subtract(a,b) {
 
 function divide(a,b) {
     if (+b===0) {
-        alert("Don't do that")
-        return "error"
+        alert("Don't do that");
+        return "0";
     }
     else {
         return `${(+a)/(+b)}`;

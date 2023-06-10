@@ -9,6 +9,10 @@
 
 .display {
     border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
     width: 350px;
     height:100px;
     margin: 40px;
