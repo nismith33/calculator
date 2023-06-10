@@ -1,5 +1,3 @@
-let firstValue;
-let secondValue;
 let operator;
 let activeOperator = false;
 let displayString = "0";
@@ -12,6 +10,11 @@ function updateDisplay() {
 
 
 //number button functionality
+const numButtons = document.querySelectorAll('.numButton');
+numButtons.forEach((item) => {
+    item.addEventListener('click', numButtonPress);
+});
+
 function numButtonPress() {
     if (displayString==="0") {
         displayString = this.textContent;
@@ -22,13 +25,44 @@ function numButtonPress() {
     updateDisplay();
 }
 
-let numButtons = document.querySelectorAll('.numButton');
-numButtons.forEach((item) => {
-    item.addEventListener('click', numButtonPress);
-});
+
+//clear buttor functionality
+const clearButton = document.querySelector('.clear');
+clearButton.addEventListener('click', clearCalculator);
+
+function clearCalculator() {
+    operator = '';
+    activeOperator = false;
+    displayString = '0';
+    updateDisplay();
+}
+
+
+//equality button functionality
+const equalButton = document.querySelector('.equals');
+equalButton.addEventListener('click', equals);
+
+function equals() {
+    //make sure there is an operator selected
+    if (operator!=='') {
+        let params = getValuesFromString(displayString);
+        if (!params.includes('')) {
+            displayString = operate(operator, params[0],params[1]);
+            activeOperator = false;
+            updateDisplay();
+        }
+        else {
+            alert('Not enough arguments');
+        }
+    }
+    else {
+        alert('No operator selected');
+    }
+}
+
 
 //operator functionality
-let operators = document.querySelectorAll('.operator')
+const operators = document.querySelectorAll('.operator')
 operators.forEach((item) => {
     item.addEventListener('click', addOperator)
 })
@@ -48,19 +82,6 @@ function addOperator() {
 
 function getValuesFromString(str) {
     return str.split(operator);
-}
-
-//clear buttor functionality
-let clearButton = document.querySelector('.clear');
-clearButton.addEventListener('click', clearCalculator);
-
-function clearCalculator() {
-    firstValue = '';
-    secondValue = '';
-    operator = '';
-    activeOperator = false;
-    displayString = '0';
-    updateDisplay();
 }
 
 function add(a,b) {
