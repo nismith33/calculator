@@ -120,3 +120,17 @@ function operate(operator, firstValue, secondValue) {
         return divide(firstValue,secondValue);
     }
 }
+
+
+//handle errors resulting in NaN
+const buttons = document.querySelectorAll('button');
+buttons.forEach((item) => {
+    item.addEventListener('click', handleNaN);
+});
+
+function handleNaN() {
+    if (displayString==="NaN") {
+        alert('Value out of bounds or otherwise undefined');
+        clearCalculator();
+    }
+}

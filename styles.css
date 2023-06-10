@@ -3,19 +3,22 @@
     flex-direction: column;
     border: 2px solid black;
     width: 400px;
-    height: 500px;
+    height: 400px;
     align-items: center;
 }
 
 .display {
     border: 1px solid black;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     font-size: 40px;
     width: 350px;
     height:100px;
     margin: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: clip;
 }
 
 .numpad {
