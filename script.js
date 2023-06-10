@@ -38,3 +38,4 @@ function operate(operator, firstValue, secondValue) {
         return divide(firstValue,secondValue);
     }
 }
+
